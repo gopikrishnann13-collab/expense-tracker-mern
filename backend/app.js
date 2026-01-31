@@ -21,18 +21,17 @@ const allowedOrigins = [
   "http://127.0.0.1:3000",  
   "https://main.d1sj7cd70hlter.amplifyapp.com",
   "https://expense-tracker-app-three-beryl.vercel.app",
-  // add more origins as needed
 ];
 
 // Middleware
 app.use(express.json());
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: true,
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
+
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("dev"));
